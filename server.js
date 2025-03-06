@@ -9,7 +9,7 @@ app.use('/graphql',graphqlHTTP({
   schema,
   rootValue:resolvers,
   graphiql:true
-}))
+}));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, ()=> {
