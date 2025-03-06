@@ -1,10 +1,13 @@
 require('dotenv').config();
 const express = require('express');
-const schema=require('./schema/schema');
 const { graphqlHTTP } = require('express-graphql');
+const schema=require('./schemas/schema');
+const resolvers=require('./resolvers');
+const connectToDB = require('./config/db');
+
 const app = express();
 
-app.use(express.json())
+connectToDB();
 
 app.use('/graphql',graphqlHTTP({
   schema,
